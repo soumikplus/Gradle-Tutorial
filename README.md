@@ -1,8 +1,10 @@
 # Gradle-Tutorial
 This is Gradle tutorial for reference and also helpful for revision
 
-### setup of basic gradle 
-
+### Setup of basic gradle 
+```text
+gradle init --use-defaults --type java-application
+```
 ## 🔨 Build the Project
 
 From the project root:
@@ -24,20 +26,27 @@ gradlew.bat build
 ```text
 ./gradlew clean build
 ```
-
-This will create the JAR file inside:
-
-```
-build/libs/
-```
-
-**Default Output:**
-
-```
-build/libs/MyGradleProject1-1.0-SNAPSHOT.jar
-```
-
 ---
+## ⚙️ Configure the Main Class
+
+Ensure your `build.gradle` specifies the entry point:
+
+```gradle
+jar {
+    manifest {
+        attributes(
+            'Main-Class': 'org.example.Main'
+        )
+    }
+    archiveBaseName = 'Main'   // Optional: rename jar
+    archiveVersion = ''        // Optional: remove version
+}
+```
+---
+The below command creates a new jar file in ```build/libs``` folder
+```text
+./gradlew jar
+```
 
 ## ▶️ Run the JAR
 
@@ -68,23 +77,6 @@ MyGradleProject1/
 
 ---
 
-## ⚙️ Configure the Main Class
-
-Ensure your `build.gradle` specifies the entry point:
-
-```gradle
-jar {
-    manifest {
-        attributes(
-            'Main-Class': 'org.example.Main'
-        )
-    }
-    archiveBaseName = 'Main'   // Optional: rename jar
-    archiveVersion = ''        // Optional: remove version
-}
-```
-
----
 
 ## 📝 Notes
 
