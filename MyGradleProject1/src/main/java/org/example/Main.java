@@ -12,7 +12,8 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("Hello OkHttp!");
         OkHttpClient client = new OkHttpClient();
-        String url = "https://jsonplaceholder.typicode.com/todos/1";
+//        String url = "https://jsonplaceholder.typicode.com/todos/1";
+        String url = "https://example.com/";
         Request request = new Request.Builder()
                 .url(url)
                 .build();
